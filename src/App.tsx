@@ -47,7 +47,7 @@ function App() {
     const setLSHandler = () => {
       localStorage.setItem('max', max)
       localStorage.setItem('start', start)
-
+        setNumb(+start)
     }
 
 

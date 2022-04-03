@@ -16,7 +16,7 @@ const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
     return (
         <div>
             <span>{props.nameInput}</span>
-            <input type="number" onChange={onChangeHandler}/>
+            <input type="number" onChange={onChangeHandler} value={props.value}/>
         </div>
     );
 };
