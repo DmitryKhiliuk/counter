@@ -1,12 +1,21 @@
-import React from 'react';
-import {StartValue} from "./StartValue";
-import {MaxValue} from "./MaxValue";
+import React, {useState} from 'react';
+import {Input} from "./Input";
 
-export const CounterValueTable = () => {
+type CounterValueTableType = {
+    max: string
+    start: string
+    setMax: (max: string) => void
+    setStart: (start: string) => void
+}
+
+
+export const CounterValueTable = (props:CounterValueTableType) => {
+
+
     return (
         <div>
-            <MaxValue />
-            <StartValue />
+            <Input nameInput={'max value'} callBackInput={props.setMax} value={props.max}/>
+            <Input nameInput={'start value'} callBackInput={props.setStart} value={props.start}/>
         </div>
     );
 };

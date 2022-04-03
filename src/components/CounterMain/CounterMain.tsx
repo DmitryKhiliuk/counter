@@ -3,11 +3,26 @@ import {CounterMainTable} from "./CounterMainTable";
 import {CounterMainButton} from "./CounterMainButton";
 import s from "./CounterMain.module.css"
 
-export const CounterMain = () => {
+type CounterMainType = {
+    numbInc: () => void
+    numbReset: () => void
+    numb: number
+    start: string
+}
+
+
+
+export const CounterMain = (props:CounterMainType) => {
+
+
+
     return (
         <div>
-            <CounterMainTable />
-            <CounterMainButton />
+            <CounterMainTable numb={props.numb}
+                              start={props.start}/>
+            <CounterMainButton numbInc={props.numbInc}
+                               numbReset={props.numbReset}
+                               />
         </div>
     );
 };
