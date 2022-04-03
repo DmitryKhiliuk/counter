@@ -4,6 +4,7 @@ type InputType = {
     nameInput: string
     callBackInput: (value:string) => void
     value: string
+    inputClass: string
 }
 
 
@@ -16,7 +17,11 @@ const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
     return (
         <div>
             <span>{props.nameInput}</span>
-            <input type="number" onChange={onChangeHandler} value={props.value}/>
+            <input type="number"
+                   onChange={onChangeHandler}
+                   value={props.value}
+
+                   className={props.inputClass}/>
         </div>
     );
 };

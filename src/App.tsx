@@ -20,6 +20,18 @@ function App() {
 
     const numbReset = () => setNumb(+start)
 
+    let inputClassMax = '';
+    let inputClassStart = '';
+    if (+start < 0 ||
+        +start === +max ||
+        +start > +max) {
+        inputClassStart += 'error'
+    }
+    if (+max < 0 ||
+        +start === +max ||
+        +start > +max) {
+        inputClassMax += 'error'
+    }
 
 
 
@@ -58,11 +70,17 @@ function App() {
                       setMax={setMax}
                       start={start}
                       setStart={setStart}
-                      setLSHandler={setLSHandler}/>
+                      setLSHandler={setLSHandler}
+                      inputClassStart={inputClassStart}
+                      inputClassMax={inputClassMax}/>
         <CounterMain numbInc={numbInc}
                      numbReset={numbReset}
                      numb={numb}
-                     start={start}/>
+                     start={start}
+                     max={max}
+                     inputClassStart={inputClassStart}
+                     inputClassMax={inputClassMax}/>
+
     </div>
   );
 }

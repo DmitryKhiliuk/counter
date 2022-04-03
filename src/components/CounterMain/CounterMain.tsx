@@ -8,6 +8,9 @@ type CounterMainType = {
     numbReset: () => void
     numb: number
     start: string
+    max: string
+    inputClassStart: string
+    inputClassMax: string
 }
 
 
@@ -19,7 +22,10 @@ export const CounterMain = (props:CounterMainType) => {
     return (
         <div>
             <CounterMainTable numb={props.numb}
-                              start={props.start}/>
+                              start={props.start}
+                              max={props.max}
+                              inputClassStart={props.inputClassStart}
+                              inputClassMax={props.inputClassMax}/>
             <CounterMainButton numbInc={props.numbInc}
                                numbReset={props.numbReset}
                                />
