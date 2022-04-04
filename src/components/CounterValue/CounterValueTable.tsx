@@ -8,6 +8,7 @@ type CounterValueTableType = {
     setStart: (start: string) => void
     inputClassStart: string
     inputClassMax: string
+    focusInput: () => void
 }
 
 
@@ -21,11 +22,13 @@ export const CounterValueTable = (props:CounterValueTableType) => {
             <Input nameInput={'max value'}
                    callBackInput={props.setMax}
                    value={props.max}
-                   inputClass={props.inputClassMax}/>
+                   inputClass={props.inputClassMax}
+                   callBackFocus={props.focusInput}/>
             <Input nameInput={'start value'}
                    callBackInput={props.setStart}
                    value={props.start}
-                   inputClass={props.inputClassStart}/>
+                   inputClass={props.inputClassStart}
+                   callBackFocus={props.focusInput}/>
         </div>
     );
 };

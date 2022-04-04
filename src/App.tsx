@@ -12,7 +12,10 @@ function App() {
     const [max, setMax] = useState('5')
     const [start, setStart] = useState('0')
     const [numb, setNumb] = useState<number>(+start)
-
+    const [focus, setFocus] = useState(false)
+    const focusInput = () => {
+      setFocus(true)
+    }
     const numbInc = () => {
 
         return numb < +max ? setNumb(numb + 1) : numb
@@ -22,15 +25,18 @@ function App() {
 
     let inputClassMax = '';
     let inputClassStart = '';
+    let disabled = false
     if (+start < 0 ||
         +start === +max ||
         +start > +max) {
         inputClassStart += 'error'
+        disabled = true
     }
     if (+max < 0 ||
         +start === +max ||
         +start > +max) {
         inputClassMax += 'error'
+        disabled = true
     }
 
 
@@ -72,14 +78,18 @@ function App() {
                       setStart={setStart}
                       setLSHandler={setLSHandler}
                       inputClassStart={inputClassStart}
-                      inputClassMax={inputClassMax}/>
+                      inputClassMax={inputClassMax}
+                      disabled={disabled}
+                      focusInput={focusInput}/>
         <CounterMain numbInc={numbInc}
                      numbReset={numbReset}
                      numb={numb}
                      start={start}
                      max={max}
                      inputClassStart={inputClassStart}
-                     inputClassMax={inputClassMax}/>
+                     inputClassMax={inputClassMax}
+                     disabled={disabled}
+                     focus={focus}/>
 
     </div>
   );

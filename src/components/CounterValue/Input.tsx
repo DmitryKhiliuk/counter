@@ -5,6 +5,7 @@ type InputType = {
     callBackInput: (value:string) => void
     value: string
     inputClass: string
+    callBackFocus: () => void
 }
 
 
@@ -14,13 +15,17 @@ const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
     props.callBackInput(e.currentTarget.value)
 }
 
+const onFocusHandler = () => {
+  props.callBackFocus()
+}
+
     return (
         <div>
             <span>{props.nameInput}</span>
             <input type="number"
                    onChange={onChangeHandler}
                    value={props.value}
-
+                    onFocus={onFocusHandler}
                    className={props.inputClass}/>
         </div>
     );

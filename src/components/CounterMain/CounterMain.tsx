@@ -11,6 +11,8 @@ type CounterMainType = {
     max: string
     inputClassStart: string
     inputClassMax: string
+    disabled: boolean
+    focus: boolean
 }
 
 
@@ -25,10 +27,11 @@ export const CounterMain = (props:CounterMainType) => {
                               start={props.start}
                               max={props.max}
                               inputClassStart={props.inputClassStart}
-                              inputClassMax={props.inputClassMax}/>
+                              inputClassMax={props.inputClassMax}
+                              focus={props.focus}/>
             <CounterMainButton numbInc={props.numbInc}
                                numbReset={props.numbReset}
-                               />
+                              disabled={props.disabled} />
         </div>
     );
 };

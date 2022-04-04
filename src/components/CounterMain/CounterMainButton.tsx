@@ -4,6 +4,7 @@ import {Button} from "../../Button";
 type CounterMainButtonType = {
     numbInc: () => void
     numbReset: () => void
+    disabled: boolean
 }
 
 
@@ -19,8 +20,8 @@ const buttonResetHandler = () => {
 
     return (
         <div>
-            <Button buttonName={'inc'} callBack={buttonIncHandler}/>
-            <Button buttonName={'reset'} callBack={buttonResetHandler}/>
+            <Button buttonName={'inc'} callBack={buttonIncHandler} disabled={props.disabled}/>
+            <Button buttonName={'reset'} callBack={buttonResetHandler} disabled={props.disabled}/>
         </div>
     );
 };

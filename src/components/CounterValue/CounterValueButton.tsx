@@ -7,6 +7,7 @@ type CounterValueButtonType = {
     setMax: (max: string) => void
     setStart: (start: string) => void
     setLSHandler: () => void
+    disabled: boolean
 }
 
 
@@ -20,7 +21,7 @@ const buttonSetHandler = () => {
 
     return (
         <div>
-            <Button callBack={buttonSetHandler} buttonName={'set'} />
+            <Button callBack={buttonSetHandler} buttonName={'set'} disabled={props.disabled}/>
         </div>
     );
 };
