@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {CounterValueTable} from "./CounterValueTable";
 import {CounterValueButton} from "./CounterValueButton";
 
@@ -10,6 +10,7 @@ type CounterValueType = {
     setLSHandler: () => void
     disabled: boolean
     focusInput: () => void
+    error: boolean
 }
 
 
@@ -27,7 +28,8 @@ export const CounterValue = (props:CounterValueType) => {
                                 start={props.start}
                                 setStart={props.setStart}
                                 setLSHandler={props.setLSHandler}
-            disabled={props.disabled}/>
+                                disabled={props.disabled}
+                                error={props.error}/>
         </div>
     );
 };

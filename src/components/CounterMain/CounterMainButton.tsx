@@ -5,6 +5,9 @@ type CounterMainButtonType = {
     numbInc: () => void
     numbReset: () => void
     disabled: boolean
+    error: boolean
+    numb: number
+    max: string
 }
 
 
@@ -22,7 +25,7 @@ const buttonResetHandler = () => {
         <div>
             <Button buttonName={'inc'}
                     callBack={buttonIncHandler}
-                    disabled={props.disabled}/>
+                    disabled={props.numb === +props.max || props.disabled}/>
             <Button buttonName={'reset'}
                     callBack={buttonResetHandler}
                     disabled={props.disabled}/>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {CounterMainTable} from "./CounterMainTable";
 import {CounterMainButton} from "./CounterMainButton";
-import s from "./CounterMain.module.css"
+
 
 type CounterMainType = {
     numbInc: () => void
@@ -11,6 +11,7 @@ type CounterMainType = {
     max: string
     disabled: boolean
     focus: boolean
+    error: boolean
 }
 
 
@@ -27,7 +28,10 @@ export const CounterMain = (props:CounterMainType) => {
                               focus={props.focus}/>
             <CounterMainButton numbInc={props.numbInc}
                                numbReset={props.numbReset}
-                              disabled={props.disabled} />
+                              disabled={props.disabled}
+                               error={props.error}
+                               numb={props.numb}
+                               max={props.max}/>
         </div>
     );
 };

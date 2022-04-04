@@ -4,8 +4,6 @@ type CounterMainTableType = {
     numb: number
     start: string
     max: string
-    /*inputClassStart: string
-    inputClassMax: string*/
     focus: boolean
 }
 

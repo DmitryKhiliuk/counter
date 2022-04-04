@@ -11,10 +11,22 @@ function App() {
     const [numb, setNumb] = useState<number>(+start)
     const [focus, setFocus] = useState(false)
     const [isDisabled, setIsDisabled] = useState(true)
+    const [error, setError] = useState(false)
+
+    const errorStart = () => {
+      if (+start < 0 || +start >= +max) {
+          setError(true)
+      } else {setError(false)}
+    }
+    useEffect(() => {
+        errorStart()
+    },[start])
+
+
+
 
     useEffect(() => {
         setIsDisabled( false)
-
     },[start,max])
 
     const focusInput = () => {
@@ -26,9 +38,6 @@ function App() {
     }
 
     const numbReset = () => setNumb(+start)
-
-
-
 
     useEffect(() => {
         let maxAsString = localStorage.getItem('max')
@@ -43,19 +52,15 @@ function App() {
             setStart(newStart)}
     }, [])
 
-
-
-
     const setLSHandler = () => {
       localStorage.setItem('max', max)
       localStorage.setItem('start', start)
         setNumb(+start)
         setIsDisabled(true)
-        console.log('INC BUTTON', isDisabled)
     }
 
 
-    console.log(isDisabled)
+
   return (
     <div className="App">
 
@@ -65,14 +70,17 @@ function App() {
                       setStart={setStart}
                       setLSHandler={setLSHandler}
                       disabled={isDisabled}
-                      focusInput={focusInput}/>
+                      focusInput={focusInput}
+                      error={error}
+        />
         <CounterMain numbInc={numbInc}
                      numbReset={numbReset}
                      numb={numb}
                      start={start}
                      max={max}
                      disabled={!isDisabled}
-                     focus={focus}/>
+                     focus={focus}
+                     error={error}/>
 
     </div>
   );

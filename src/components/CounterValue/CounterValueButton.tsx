@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Button} from "../../Button";
 
 type CounterValueButtonType = {
@@ -8,6 +8,7 @@ type CounterValueButtonType = {
     setStart: (start: string) => void
     setLSHandler: () => void
     disabled: boolean
+    error: boolean
 }
 
 
@@ -17,7 +18,8 @@ export const CounterValueButton = (props: CounterValueButtonType) => {
         <div>
             <Button callBack={props.setLSHandler}
                     buttonName={'set'}
-                    disabled={props.disabled}
+                    disabled={props.error || props.disabled}
+
             />
         </div>
     );
