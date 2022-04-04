@@ -20,8 +20,12 @@ const buttonResetHandler = () => {
 
     return (
         <div>
-            <Button buttonName={'inc'} callBack={buttonIncHandler} disabled={props.disabled}/>
-            <Button buttonName={'reset'} callBack={buttonResetHandler} disabled={props.disabled}/>
+            <Button buttonName={'inc'}
+                    callBack={buttonIncHandler}
+                    disabled={props.disabled}/>
+            <Button buttonName={'reset'}
+                    callBack={buttonResetHandler}
+                    disabled={props.disabled}/>
         </div>
     );
 };

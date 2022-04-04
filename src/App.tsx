@@ -13,9 +13,21 @@ function App() {
     const [start, setStart] = useState('0')
     const [numb, setNumb] = useState<number>(+start)
     const [focus, setFocus] = useState(false)
+    const [isDisabled, setIsDisabled] = useState(true)
+
+    useEffect(() => {
+        setIsDisabled( false)
+        console.log('SET BUTTON', isDisabled)
+    },[start,max])
+
+
+
     const focusInput = () => {
-      setFocus(true)
+        setFocus(true)
+
     }
+
+
     const numbInc = () => {
 
         return numb < +max ? setNumb(numb + 1) : numb
@@ -25,19 +37,19 @@ function App() {
 
     let inputClassMax = '';
     let inputClassStart = '';
-    let disabled = false
-    if (+start < 0 ||
-        +start === +max ||
-        +start > +max) {
-        inputClassStart += 'error'
-        disabled = true
-    }
-    if (+max < 0 ||
-        +start === +max ||
-        +start > +max) {
-        inputClassMax += 'error'
-        disabled = true
-    }
+    // let disabled = false
+    // if (+start < 0 ||
+    //     +start === +max ||
+    //     +start > +max) {
+    //     inputClassStart += 'error'
+    //     disabled = true
+    // }
+    // if (+max < 0 ||
+    //     +start === +max ||
+    //     +start > +max) {
+    //     inputClassMax += 'error'
+    //     disabled = true
+    // }
 
 
 
@@ -66,9 +78,12 @@ function App() {
       localStorage.setItem('max', max)
       localStorage.setItem('start', start)
         setNumb(+start)
+        setIsDisabled(true)
+        console.log('INC BUTTON', isDisabled)
     }
 
 
+    console.log(isDisabled)
   return (
     <div className="App">
 
@@ -79,7 +94,7 @@ function App() {
                       setLSHandler={setLSHandler}
                       inputClassStart={inputClassStart}
                       inputClassMax={inputClassMax}
-                      disabled={disabled}
+                      disabled={isDisabled}
                       focusInput={focusInput}/>
         <CounterMain numbInc={numbInc}
                      numbReset={numbReset}
@@ -88,7 +103,7 @@ function App() {
                      max={max}
                      inputClassStart={inputClassStart}
                      inputClassMax={inputClassMax}
-                     disabled={disabled}
+                     disabled={!isDisabled}
                      focus={focus}/>
 
     </div>
