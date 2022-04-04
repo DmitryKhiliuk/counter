@@ -12,15 +12,6 @@ type CounterValueButtonType = {
 
 
 export const CounterValueButton = (props: CounterValueButtonType) => {
-//     const [set, setSet] = useState(false)
-//
-// const buttonSetHandler = () => {
-//     props.setLSHandler()
-//         setSet(true)
-// }
-
-
-
 
     return (
         <div>

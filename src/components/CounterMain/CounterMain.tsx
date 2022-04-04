@@ -9,8 +9,6 @@ type CounterMainType = {
     numb: number
     start: string
     max: string
-    inputClassStart: string
-    inputClassMax: string
     disabled: boolean
     focus: boolean
 }
@@ -26,8 +24,6 @@ export const CounterMain = (props:CounterMainType) => {
             <CounterMainTable numb={props.numb}
                               start={props.start}
                               max={props.max}
-                              inputClassStart={props.inputClassStart}
-                              inputClassMax={props.inputClassMax}
                               focus={props.focus}/>
             <CounterMainButton numbInc={props.numbInc}
                                numbReset={props.numbReset}

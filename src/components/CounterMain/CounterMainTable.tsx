@@ -4,8 +4,8 @@ type CounterMainTableType = {
     numb: number
     start: string
     max: string
-    inputClassStart: string
-    inputClassMax: string
+    /*inputClassStart: string
+    inputClassMax: string*/
     focus: boolean
 }
 
@@ -13,9 +13,9 @@ type CounterMainTableType = {
 export const CounterMainTable = (props:CounterMainTableType) => {
     return (
         <div>
-            {!props.inputClassStart && <div>{props.numb}</div>}
+            {<div>{props.numb}</div>}
             {props.focus && <div>enter values and press 'set'</div>}
-            {props.inputClassStart && <div>Incorrect value!</div>}
+            {<div>Incorrect value!</div>}
         </div>
     );
 };

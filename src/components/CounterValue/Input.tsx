@@ -4,7 +4,7 @@ type InputType = {
     nameInput: string
     callBackInput: (value:string) => void
     value: string
-    inputClass: string
+    /*inputClass: string*/
     callBackFocus: () => void
 }
 
@@ -26,7 +26,7 @@ const onFocusHandler = () => {
                    onChange={onChangeHandler}
                    value={props.value}
                     onFocus={onFocusHandler}
-                   className={props.inputClass}/>
+                   /*className={props.inputClass}*//>
         </div>
     );
 };
