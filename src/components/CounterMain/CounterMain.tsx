@@ -22,7 +22,7 @@ export const CounterMain = (props:CounterMainType) => {
 
 
     return (
-        <div>
+        <div className={'counter'}>
             <CounterMainTable numb={props.numb}
                               start={props.start}
                               max={props.max}

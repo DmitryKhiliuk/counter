@@ -15,7 +15,7 @@ type CounterValueButtonType = {
 export const CounterValueButton = (props: CounterValueButtonType) => {
 
     return (
-        <div>
+        <div className={'counter__button'}>
             <Button callBack={props.setLSHandler}
                     buttonName={'set'}
                     disabled={props.error || props.disabled}

@@ -17,7 +17,7 @@ type CounterValueType = {
 export const CounterValue = (props:CounterValueType) => {
 
     return (
-        <div>
+        <div className={'counter'}>
             <CounterValueTable max={props.max}
                                setMax={props.setMax}
                                start={props.start}

@@ -22,7 +22,7 @@ const buttonResetHandler = () => {
 }
 
     return (
-        <div>
+        <div className={'counter__button'}>
             <Button buttonName={'inc'}
                     callBack={buttonIncHandler}
                     disabled={props.numb === +props.max || props.disabled}/>
