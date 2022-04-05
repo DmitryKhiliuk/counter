@@ -10,8 +10,9 @@ type CounterMainType = {
     start: string
     max: string
     disabled: boolean
-    focus: boolean
+    /*focus: boolean*/
     error: boolean
+    active: boolean
 }
 
 
@@ -25,7 +26,9 @@ export const CounterMain = (props:CounterMainType) => {
             <CounterMainTable numb={props.numb}
                               start={props.start}
                               max={props.max}
-                              focus={props.focus}/>
+                              error={props.error}
+                             /* focus={props.focus}*/
+            active={props.active}/>
             <CounterMainButton numbInc={props.numbInc}
                                numbReset={props.numbReset}
                               disabled={props.disabled}

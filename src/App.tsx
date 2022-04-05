@@ -9,10 +9,11 @@ function App() {
     const [max, setMax] = useState('5')
     const [start, setStart] = useState('0')
     const [numb, setNumb] = useState<number>(+start)
-    const [focus, setFocus] = useState(false)
+   /* const [focus, setFocus] = useState(false)*/
     const [isDisabled, setIsDisabled] = useState(true)
     const [error, setError] = useState(false)
-
+    const [active, setActive] = useState(true)
+    console.log(active)
     const errorStart = () => {
       if (+start < 0 || +start >= +max) {
           setError(true)
@@ -20,18 +21,19 @@ function App() {
     }
     useEffect(() => {
         errorStart()
-    },[start])
+    },[start, max])
 
 
 
 
     useEffect(() => {
         setIsDisabled( false)
+        setActive(true)
     },[start,max])
 
-    const focusInput = () => {
+    /*const focusInput = () => {
         setFocus(true)
-    }
+    }*/
 
     const numbInc = () => {
         return numb < +max ? setNumb(numb + 1) : numb
@@ -57,6 +59,7 @@ function App() {
       localStorage.setItem('start', start)
         setNumb(+start)
         setIsDisabled(true)
+        setActive(false)
     }
 
 
@@ -70,7 +73,7 @@ function App() {
                       setStart={setStart}
                       setLSHandler={setLSHandler}
                       disabled={isDisabled}
-                      focusInput={focusInput}
+                      /*focusInput={focusInput}*/
                       error={error}
         />
         <CounterMain numbInc={numbInc}
@@ -79,8 +82,9 @@ function App() {
                      start={start}
                      max={max}
                      disabled={!isDisabled}
-                     focus={focus}
-                     error={error}/>
+                     /*focus={focus}*/
+                     error={error}
+        active={active}/>
 
     </div>
   );

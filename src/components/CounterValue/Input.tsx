@@ -5,7 +5,7 @@ type InputType = {
     callBackInput: (value:string) => void
     value: string
 
-    callBackFocus: () => void
+    /*callBackFocus: () => void*/
 }
 
 
@@ -15,9 +15,9 @@ const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
     props.callBackInput(e.currentTarget.value)
 }
 
-const onFocusHandler = () => {
+/*const onFocusHandler = () => {
   props.callBackFocus()
-}
+}*/
 
     return (
         <div>
@@ -25,8 +25,8 @@ const onFocusHandler = () => {
             <input type="number"
                    onChange={onChangeHandler}
                    value={props.value}
-                    onFocus={onFocusHandler}
-                   />
+                   /*onFocus={onFocusHandler}*/
+                   className={'border'}/>
         </div>
     );
 };

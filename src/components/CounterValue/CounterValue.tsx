@@ -9,7 +9,7 @@ type CounterValueType = {
     setStart: (start: string) => void
     setLSHandler: () => void
     disabled: boolean
-    focusInput: () => void
+   /* focusInput: () => void*/
     error: boolean
 }
 
@@ -22,7 +22,8 @@ export const CounterValue = (props:CounterValueType) => {
                                setMax={props.setMax}
                                start={props.start}
                                setStart={props.setStart}
-                               focusInput={props.focusInput}/>
+                               error={props.error}
+                               /*focusInput={props.focusInput}*//>
             <CounterValueButton max={props.max}
                                 setMax={props.setMax}
                                 start={props.start}
