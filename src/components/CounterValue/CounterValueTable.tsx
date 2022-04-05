@@ -21,10 +21,12 @@ export const CounterValueTable = (props:CounterValueTableType) => {
             <Input nameInput={'max value'}
                    callBackInput={props.setMax}
                    value={props.max}
+                   inputClass={props.error && +props.start >= +props.max?'error':''}
                    /*callBackFocus={props.focusInput}*//>
             <Input nameInput={'start value'}
                    callBackInput={props.setStart}
                    value={props.start}
+                   inputClass={props.error?'error':''}
                    /*callBackFocus={props.focusInput}*//>
         </div>
     );

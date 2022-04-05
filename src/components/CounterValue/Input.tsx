@@ -4,6 +4,7 @@ type InputType = {
     nameInput: string
     callBackInput: (value:string) => void
     value: string
+    inputClass: string
 
     /*callBackFocus: () => void*/
 }
@@ -26,7 +27,7 @@ const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
                    onChange={onChangeHandler}
                    value={props.value}
                    /*onFocus={onFocusHandler}*/
-                   className={'border'}/>
+                   className={props.inputClass}/>
         </div>
     );
 };

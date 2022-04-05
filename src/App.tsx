@@ -9,11 +9,9 @@ function App() {
     const [max, setMax] = useState('5')
     const [start, setStart] = useState('0')
     const [numb, setNumb] = useState<number>(+start)
-   /* const [focus, setFocus] = useState(false)*/
     const [isDisabled, setIsDisabled] = useState(true)
     const [error, setError] = useState(false)
     const [active, setActive] = useState(true)
-    console.log(active)
     const errorStart = () => {
       if (+start < 0 || +start >= +max) {
           setError(true)
