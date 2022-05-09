@@ -1,34 +1,34 @@
 import React from 'react';
 import {Button} from "../../Button";
+import {useDispatch} from "react-redux";
+import {IncrementAC, InitialStateType, resetAC} from "../../state/counter-reducer";
 
 type CounterMainButtonType = {
-    numbInc: () => void
-    numbReset: () => void
-    disabled: boolean
-    error: boolean
-    numb: number
-    max: string
+
+    counter: InitialStateType
 }
 
 
 
 export const CounterMainButton = (props:CounterMainButtonType) => {
 
-const buttonIncHandler = () => {
-  props.numbInc()
+const dispatch = useDispatch()
+
+const incButtonHandler = () => {
+    (props.counter.presentValue < +props.counter.maxValue) && dispatch(IncrementAC(props.counter.presentValue))
 }
-const buttonResetHandler = () => {
-  props.numbReset()
+const resetButtonHandler = () => {
+    dispatch(resetAC(props.counter.minValue))
 }
 
     return (
         <div className={'counter__button'}>
             <Button buttonName={'inc'}
-                    callBack={buttonIncHandler}
-                    disabled={props.numb === +props.max || props.disabled}/>
+                    callBack={incButtonHandler}
+                    disabled={props.counter.presentValue === +props.counter.maxValue || props.counter.isDisabled}/>
             <Button buttonName={'reset'}
-                    callBack={buttonResetHandler}
-                    disabled={props.disabled}/>
+                    callBack={resetButtonHandler}
+                    disabled={props.counter.isDisabled}/>
         </div>
     );
 };
