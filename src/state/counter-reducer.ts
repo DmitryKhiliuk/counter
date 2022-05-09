@@ -1,4 +1,3 @@
-import {store} from "./store";
 
 const initialState = {
     maxValue: '5',

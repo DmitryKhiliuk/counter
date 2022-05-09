@@ -7,9 +7,6 @@ type CounterMainButtonType = {
 
     counter: InitialStateType
 }
-
-
-
 export const CounterMainButton = (props:CounterMainButtonType) => {
 
 const dispatch = useDispatch()
@@ -25,10 +22,10 @@ const resetButtonHandler = () => {
         <div className={'counter__button'}>
             <Button buttonName={'inc'}
                     callBack={incButtonHandler}
-                    disabled={props.counter.presentValue === +props.counter.maxValue || props.counter.isDisabled}/>
+                    disabled={props.counter.presentValue === +props.counter.maxValue || !props.counter.isDisabled}/>
             <Button buttonName={'reset'}
                     callBack={resetButtonHandler}
-                    disabled={props.counter.isDisabled}/>
+                    disabled={!props.counter.isDisabled}/>
         </div>
     );
 };

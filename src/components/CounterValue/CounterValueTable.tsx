@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
 import {Input} from "./Input";
 import {useDispatch} from "react-redux";
-import {addMaxValueAC, addMinValueAC, InitialStateType, PresentValueAC} from "../../state/counter-reducer";
+import {addMaxValueAC, addMinValueAC, errorAC, InitialStateType, PresentValueAC} from "../../state/counter-reducer";
+
 
 type CounterValueTableType = {
 
     counter: InitialStateType
-    /*focusInput: () => void*/
 }
 
 
@@ -30,7 +30,13 @@ export const CounterValueTable = (props:CounterValueTableType) => {
         updateValue(props.counter.minValue)
     },[props.counter.minValue,props.counter.maxValue])
 
+    const errorStart = () => {
+        dispatch((+props.counter.minValue < 0 || +props.counter.minValue >= +props.counter.maxValue) ? errorAC(true) : errorAC(false))
+    }
 
+    useEffect(() => {
+        errorStart()
+    },[props.counter.minValue, props.counter.maxValue])
 
 
     return (
@@ -38,13 +44,11 @@ export const CounterValueTable = (props:CounterValueTableType) => {
             <Input nameInput={'max value'}
                    callBackInput={addMaxValue}
                    value={props.counter.maxValue}
-                   inputClass={props.counter.error && +props.counter.minValue >= +props.counter.maxValue?'error':'input'}
-                   /*callBackFocus={props.focusInput}*//>
+                   inputClass={props.counter.error && +props.counter.minValue >= +props.counter.maxValue?'error':'input'}/>
             <Input nameInput={'start value'}
                    callBackInput={addMinValue}
                    value={props.counter.minValue}
-                   inputClass={props.counter.error?'error':'input'}
-                   /*callBackFocus={props.focusInput}*//>
+                   inputClass={props.counter.error?'error':'input'}/>
         </div>
     );
 };
