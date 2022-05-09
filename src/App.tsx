@@ -2,16 +2,25 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import {CounterValue} from "./components/CounterValue/CounterValue";
 import {CounterMain} from "./components/CounterMain/CounterMain";
+import {AppRootStateType, store} from "./state/store";
+import {InitialStateType} from "./state/counter-reducer";
+import {useDispatch, useSelector} from 'react-redux';
 
 
 function App() {
 
     const [max, setMax] = useState('5')
     const [start, setStart] = useState('0')
-    const [numb, setNumb] = useState<number>(+start)
+    const [numb, setNumb] = useState<number>(0)
     const [isDisabled, setIsDisabled] = useState(true)
     const [error, setError] = useState(false)
     const [active, setActive] = useState(true)
+
+
+    const counter = useSelector<AppRootStateType, InitialStateType>(state => state.counter)
+    const dispatch = useDispatch()
+
+
     const errorStart = () => {
       if (+start < 0 || +start >= +max) {
           setError(true)
@@ -60,9 +69,11 @@ function App() {
         setActive(false)
     }
 
+    console.log(store.getState())
 
 
-  return (
+
+    return (
     <div className="App">
 
         <CounterValue max={max}
@@ -73,6 +84,7 @@ function App() {
                       disabled={isDisabled}
                       /*focusInput={focusInput}*/
                       error={error}
+                      counter={counter}
         />
         <CounterMain numbInc={numbInc}
                      numbReset={numbReset}

@@ -7,7 +7,13 @@ export const rootReducer = combineReducers({
 })
 export const store = createStore(rootReducer)
 
+store.subscribe(() => {
+
+})
+
 export type AppRootStateType = ReturnType<typeof rootReducer>
+
+type AppStoreType = typeof store
 
 // @ts-ignore
 window.store = store;

@@ -31,7 +31,7 @@ export const CounterMain = (props:CounterMainType) => {
             active={props.active}/>
             <CounterMainButton numbInc={props.numbInc}
                                numbReset={props.numbReset}
-                              disabled={props.disabled}
+                               disabled={props.disabled}
                                error={props.error}
                                numb={props.numb}
                                max={props.max}/>
