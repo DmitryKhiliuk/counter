@@ -14,7 +14,7 @@ export const CounterValueButton = (props: CounterValueButtonType) => {
     const dispatch = useDispatch()
 
     const setButtonHandler = () => {
-      dispatch(PresentValueAC(props.counter.minValue, props.counter.isDisabled, props.counter.active))
+      dispatch(PresentValueAC(props.counter.minValue, true, false))
     }
 
     return (

@@ -19,7 +19,7 @@ export const counterReducer = (state: InitialStateType = initialState,action:Act
             return {...state, minValue: action.minValue}
         }
         case "PRESENT_VALUE": {
-            return {...state, presentValue: action.minValue, isDisabled: !action.isDisabled, active: !action.active}
+            return {...state, presentValue: action.minValue, isDisabled: action.isDisabled, active: action.active}
         }
         case "INCREMENT": {
             return {...state, presentValue: action.presentValue + 1}
