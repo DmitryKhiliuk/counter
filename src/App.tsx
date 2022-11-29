@@ -13,9 +13,6 @@ function App() {
 
     const counter = useSelector<AppRootStateType, InitialStateType>(state => state.counter)
 
-
-    console.log(store.getState())
-
     return (
     <div className="App">
 
