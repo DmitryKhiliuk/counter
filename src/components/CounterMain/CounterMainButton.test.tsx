@@ -11,12 +11,12 @@ describe('test main button', () => {
                 active: false,
                 error:false,
                 isDisabled:true,
-                maxValue:"4",
-                minValue:"1",
-                presentValue:4
+                maxValue:"5",
+                minValue:"0",
+                presentValue:0
         }
     })
-    it('render button', () => {
+    test('render button', () => {
         render(
             <Provider store={store}>
                 <CounterMainButton counter={counter}/>)
