@@ -20,12 +20,14 @@ describe('test main button', () => {
         render(
             <Provider store={store}>
                 <CounterMainButton counter={counter}/>)
-                </Provider>
+            </Provider>
         )
         const buttonInc = screen.getByText('inc')
         const buttonReset = screen.getByText('reset')
+        const buttonAll = screen.getAllByRole('button')
         expect(buttonInc).toBeInTheDocument()
         expect(buttonReset).toBeInTheDocument()
+        expect(buttonAll).toEqual([buttonInc, buttonReset])
 
     })
 })
