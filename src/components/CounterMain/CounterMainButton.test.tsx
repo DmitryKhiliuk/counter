@@ -1,9 +1,9 @@
 import React from 'react';
-import {CounterMainButton} from "./CounterMainButton";
 import {fireEvent, render, screen} from "@testing-library/react";
 import * as actions from "../../state/counter-reducer";
 import * as reduxHooks from "react-redux";
 import {AppRootStateType} from "../../state/store";
+import {CounterMainButton} from "./CounterMainButton";
 
 let startState: AppRootStateType
 
