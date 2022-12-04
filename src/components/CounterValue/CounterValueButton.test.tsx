@@ -13,7 +13,7 @@ const mockedDispatch = jest.spyOn(reduxHooks, 'useDispatch')
 const dispatch = jest.fn()
 
 
-describe('test main button', () => {
+describe('test value button', () => {
     beforeEach(() => {
         startState = {
             counter: {
