@@ -26,7 +26,7 @@ const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
             <input type="number"
                    onChange={onChangeHandler}
                    value={props.value}
-                   /*onFocus={onFocusHandler}*/
+                   data-testid={'input-basic'}
                    className={props.inputClass}/>
         </div>
     );
